@@ -11,6 +11,7 @@ function BooksIndexController( $http ) {
     url: endpoint
   }).then(function successCallback(response) {
     console.log(response.data);
+    vm.books = response.data.books;
   }, function errorCallback(response) {
     console.log('error getting books', response);
   });
