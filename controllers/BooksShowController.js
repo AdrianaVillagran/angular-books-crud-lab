@@ -26,7 +26,20 @@ function BooksShowController($http, $routeParams, $location) {
       console.log('book deleted',response.data);
       $location.path('/');
     }, function errorCallback(response) {
-      console.log('error showing book', response);
+      console.log('error deleting book', response);
+    });
+  };
+
+  vm.editBook = function() {
+
+    $http({
+      method: 'PUT',
+      url: endpoint + '/' + $routeParams.id,
+      data: vm.book
+    }).then(function successCallback(response) {
+      console.log('book updated',response.data);
+    }, function errorCallback(response) {
+      console.log('error updating book', response);
     });
   };
 }
