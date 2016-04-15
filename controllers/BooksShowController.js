@@ -15,5 +15,18 @@ function BooksShowController($http, $routeParams, $location) {
     vm.book = response.data;
   }, function errorCallback(response) {
     console.log('error showing book', response);
-  } );
+  });
+
+  vm.deleteBook = function() {
+
+    $http({
+      method: 'DELETE',
+      url: endpoint + '/' + $routeParams.id
+    }).then(function successCallback(response) {
+      console.log('book deleted',response.data);
+      $location.path('/');
+    }, function errorCallback(response) {
+      console.log('error showing book', response);
+    });
+  };
 }
