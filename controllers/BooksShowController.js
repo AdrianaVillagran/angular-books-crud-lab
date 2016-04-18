@@ -38,6 +38,7 @@ function BooksShowController($http, $routeParams, $location) {
       data: vm.book
     }).then(function successCallback(response) {
       console.log('book updated',response.data);
+      $location.path('/');
     }, function errorCallback(response) {
       console.log('error updating book', response);
     });

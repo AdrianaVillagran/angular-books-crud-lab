@@ -29,9 +29,10 @@
 			</div>
 		</div>
 		<div class='panel-footer'>
-			<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook()">Delete Book</button>
+			<button class='btn btn-danger' ng-hide="editing" ng-click="booksShowCtrl.deleteBook()">Delete Book</button>
 			<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Album</button>
       <button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(); editing = false">Save Changes</button>
+			<button class='btn btn-danger' ng-show="editing" ng-click="editing = false">Cancel</button>
 		</div>
 	</div>
 	<a ng-href="/" class='btn btn-info'>Back</a>
